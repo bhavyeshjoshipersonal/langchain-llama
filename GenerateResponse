@@ -1,0 +1,13 @@
+#write code to import ollama
+import ollama
+import json 
+
+#write code to generate response from ollama model llama3.2 using generate function
+response = ollama.generate(
+    model="llama3.2",
+    prompt="Why is the sky blue?",
+    
+)
+# print the response from ollama.generate
+
+print("Response:", response)
