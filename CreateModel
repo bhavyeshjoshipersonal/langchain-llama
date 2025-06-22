@@ -1,0 +1,21 @@
+import ollama
+
+# Create a new model with modelfile
+modelfile = """
+FROM llama3.2
+SYSTEM You are a very smart assistant who knows everything about mountains. Please answer questions briefly without being verbose.
+"""
+
+ollama.create(
+    model="mountain_expert",
+    from_="llama3.2",  # Use the base model llama3.2
+    #modelfile=modelfile,  # Provide the modelfile content
+    
+    system="You are a very smart assistant who knows everything about mountains. Please answer questions briefly without being verbose.",   
+)
+
+response = ollama.generate(
+    model="mountain_expert",
+    prompt="What are the highest, second highest and thid highest mountain peaks in the world?",
+)
+print("Response:", response)
